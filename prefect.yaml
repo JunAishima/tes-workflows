@@ -26,6 +26,7 @@ deployments:
         network: slirp4netns
         volumes:
           - /nsls2/data/tes/proposals:/nsls2/data/tes/proposals
+          - /srv/prefect3-docker-worker-tes/app:/srv
         container_create_kwargs:
           userns_mode: "keep-id:uid=402954,gid=402954" # workflow-tes:workflow-tes
         auto_remove: true
