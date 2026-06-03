@@ -14,22 +14,19 @@ pull:
 
 deployments:
   - name: tes-end-of-run-workflow-docker
-    version: 0.1.1
+    version: 0.1.2
     description: Deploy the updated Docker image
     entrypoint: end_of_run_workflow.py:end_of_run_workflow
     parameters: {}
     schedule: {}
     work_pool:
       job_variables:
-        env:
-          TILED_SITE_PROFILES: /nsls2/software/etc/tiled/profiles
         image: ghcr.io/nsls2/tes-workflows:main
         image_pull_policy: Always
         network: slirp4netns
         volumes:
           - /nsls2/data/tes/proposals:/nsls2/data/tes/proposals
-          - /nsls2/software/etc/tiled:/nsls2/software/etc/tiled
         container_create_kwargs:
-          userns_mode: "keep-id:uid=402954,gid=402954"  # workflow-tes:workflow-tes
+          userns_mode: "keep-id:uid=402954,gid=402954" # workflow-tes:workflow-tes
         auto_remove: true
       name: tes-work-pool-docker
