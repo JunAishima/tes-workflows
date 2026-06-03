@@ -77,8 +77,8 @@ def export_E_step(run):
     start = run.start
     dt = datetime.datetime.fromtimestamp(start["time"])
 
-    user_input = start['user_input']
-    del user_input['E_points']
+    user_input = start["user_input"]
+    del user_input["E_points"]
 
     file_head = {
         "beamline_id": "TES/8-BM of NSLS-II",
