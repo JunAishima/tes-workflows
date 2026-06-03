@@ -99,7 +99,7 @@ def export_E_step(run, dry_run=False):
     filename = f"{start['scan_title']}-{start['scan_id']}-{start['operator']}-{dt.time().strftime('%H-%M-%S')}-{scan_index}.csv"
     filepath = working_dir / filename
 
-    if dry_run == False:
+    if not dry_run:
         os.makedirs(working_dir, exist_ok=True)
 
         with open(filepath, "wt") as output_file:
@@ -190,7 +190,7 @@ def export_E_fly(run, dry_run=False):
         filename = f"{start['scan_title']}-{start['scan_id']}-{start['operator']}-{dt.time().strftime('%H-%M-%S')}-{ii}.dat"
         filepath = working_dir / filename
 
-        if dry_run == False:
+        if not dry_run:
             os.makedirs(working_dir, exist_ok=True)
 
             with open(filepath, "wt") as output_file:
